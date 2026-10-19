@@ -1,0 +1,55 @@
+
+version: 2
+
+models:
+  - name: stg_yellow_taxi_trips
+    description: "Standardized Yellow Taxi trip records from the landing Delta table."
+    columns:
+      - name: pickup_datetime
+        description: "Local pickup timestamp supplied by the source."
+        data_tests:
+          - not_null
+
+      - name: dropoff_datetime
+        description: "Local dropoff timestamp supplied by the source."
+        data_tests:
+          - not_null
+
+      - name: taxi_type
+        description: "Taxi service category; yellow for Yellow Taxi."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['yellow']
+
+      - name: source_month
+        description: "Source month used for ingestion and backfill tracking."
+        data_tests:
+          - not_null
+
+  - name: stg_green_taxi_trips
+    description: "Standardized Green Taxi trip records from the landing Delta table."
+    columns:
+      - name: pickup_datetime
+        description: "Local pickup timestamp supplied by the source."
+        data_tests:
+          - not_null
+
+      - name: dropoff_datetime
+        description: "Local dropoff timestamp supplied by the source."
+        data_tests:
+          - not_null
+
+      - name: taxi_type
+        description: "Taxi service category; green for Green Taxi."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['green']
+
+      - name: source_month
+        description: "Source month used for ingestion and backfill tracking."
+        data_tests:
+          - not_null

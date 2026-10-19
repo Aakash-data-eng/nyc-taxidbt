@@ -1,0 +1,11 @@
+
+version: 2
+
+sources:
+  - name: taxi_landing
+    description: "Raw NYC Taxi data in Databricks"
+    database: nyc
+    schema: landing
+    tables:
+      - name: yellow_taxi_trips
+      - name: green_taxi_trips

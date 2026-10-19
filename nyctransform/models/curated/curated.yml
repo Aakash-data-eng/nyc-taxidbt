@@ -1,0 +1,63 @@
+
+version: 2
+
+models:
+  - name: fct_taxi_trips
+    description: "Combined Yellow and Green Taxi trips with valid pickup and dropoff timestamps."
+    columns:
+      - name: pickup_datetime
+        data_tests:
+          - not_null
+
+      - name: dropoff_datetime
+        data_tests:
+          - not_null
+
+      - name: taxi_type
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['yellow', 'green']
+
+      - name: trip_duration_minutes
+        description: "Trip duration calculated in minutes."
+        data_tests:
+          - not_null
+
+      - name: pickup_date
+        description: "Calendar date of pickup."
+        data_tests:
+          - not_null
+
+      - name: pickup_hour
+        description: "Hour of pickup, from 0 to 23."
+        data_tests:
+          - not_null
+
+  - name: quarantine_taxi_trips
+    description: "Taxi records excluded from the fact table because their timestamps are invalid."
+    columns:
+      - name: rejection_reason
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - MISSING_PICKUP_DATETIME
+                  - MISSING_DROPOFF_DATETIME
+                  - DROPOFF_BEFORE_PICKUP
+
+  - name: dq_suspicious_taxi_trips
+    description: "Flags taxi trips with unusually long durations for data quality investigation."
+    columns:
+      - name: anomaly_reason
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - 'DURATION_OVER_24_HOURS'
+                  - 'LONG_DURATION_SHORT_DISTANCE'
+                  - 'LONG_DURATION_NONPOSITIVE_FARE'
+                  - 'DURATION_OVER_3_HOURS'

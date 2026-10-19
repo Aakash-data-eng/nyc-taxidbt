@@ -1,0 +1,44 @@
+dbt_practice:
+  outputs:
+    dev:
+      catalog: dbt_tutorial
+      host: dbc-142049cb-996e.cloud.databricks.com
+      http_path: /sql/1.0/warehouses/67f894f6a9bab1cb
+      schema: default
+      threads: 1
+      token: "{{ env_var('DBT_DATABRICKS_TOKEN') }}"
+      type: databricks
+  target: dev
+masterclass:
+  outputs:
+    dev:
+      catalog: dbt_tutorial
+      host: dbc-142049cb-996e.cloud.databricks.com
+      http_path: /sql/1.0/warehouses/67f894f6a9bab1cb
+      schema: default
+      threads: 1
+      token: "{{ env_var('DBT_DATABRICKS_TOKEN') }}"
+      type: databricks
+  target: dev
+nycindia:
+  outputs:
+    dev:
+      catalog: global_pulse_sdp
+      host: dbc-142049cb-996e.cloud.databricks.com
+      http_path: /sql/1.0/warehouses/67f894f6a9bab1cb
+      schema: default
+      threads: 1
+      token: "{{ env_var('DBT_DATABRICKS_TOKEN') }}"
+      type: databricks
+  target: dev
+nyctransform:
+  outputs:
+    dev:
+      catalog: nyc
+      host: dbc-142049cb-996e.cloud.databricks.com
+      http_path: /sql/1.0/warehouses/67f894f6a9bab1cb
+      schema: default
+      threads: 1
+      token: "{{ env_var('DBT_DATABRICKS_TOKEN') }}"
+      type: databricks
+  target: dev
