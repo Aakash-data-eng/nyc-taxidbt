@@ -1,0 +1,21 @@
+﻿lookup_type,code,description
+vendor_id,1,Creative Mobile Technologies LLC
+vendor_id,2,Curb Mobility LLC
+vendor_id,6,Myle Technologies Inc
+vendor_id,7,Helix
+ratecode_id,1,Standard rate
+ratecode_id,2,JFK
+ratecode_id,3,Newark
+ratecode_id,4,Nassau or Westchester
+ratecode_id,5,Negotiated fare
+ratecode_id,6,Group ride
+ratecode_id,99,Unknown
+payment_type,0,Flex fare trip
+payment_type,1,Credit card
+payment_type,2,Cash
+payment_type,3,No charge
+payment_type,4,Dispute
+payment_type,5,Unknown
+payment_type,6,Voided trip
+trip_type,1,Street-hail
+trip_type,2,Dispatch

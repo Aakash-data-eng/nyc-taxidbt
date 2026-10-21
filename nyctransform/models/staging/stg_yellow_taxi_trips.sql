@@ -3,7 +3,7 @@
 
 select
     cast(VendorID as int) as vendor_id,
-    cast(tpep_pickup_datetime as timestamp_ntz) as pickup_datetime,
+    cast(tpep_pickup_datetime as timestamp) as pickup_datetime,
     cast(tpep_dropoff_datetime as timestamp) as dropoff_datetime,
     cast(passenger_count as bigint) as passenger_count,
     cast(trip_distance as double) as trip_distance,

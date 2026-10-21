@@ -1,0 +1,11 @@
+snapshots:
+  - name: snap_taxi_zone
+    relation: ref('taxi_zone_lookup')
+    config:
+      schema: curated
+      unique_key: LocationID
+      strategy: check
+      check_cols:
+        - Borough
+        - Zone
+        - service_zone
